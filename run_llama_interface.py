@@ -15,12 +15,12 @@ max_seq_len = 512  # Maximum sequence length for LLaMA
 max_batch_size = 4  # Maximum batch size for generating responses
 
 # Log file for storing responses
-log_file = "responses_log.jsonl"
+log_file = "responses_log.json"
 
 # Ensure the log file exists
-if not os.path.exists(log_file):
-    with open(log_file, 'w') as f:
-        pass  # Create the file if it doesn't exist
+# if not os.path.exists(log_file):
+#     with open(log_file, 'w') as f:
+#         pass  # Create the file if it doesn't exist
 
 # Build the LLaMA generator
 generator = Llama.build(
@@ -84,9 +84,9 @@ def chat():
         "results": results  # Full results object from LLaMA 3 model
     }
 
-    # Store the response in the log file
-    with open(log_file, 'a') as f:
-        f.write(json.dumps(response) + "\n")  # Write each response as a new line in JSONL format
+    # # Store the response in the log file
+    # with open(log_file, 'a') as f:
+    #     f.write(json.dumps(response) + "\n")  # Write each response as a new line in JSON format
 
     # Return the response as a JSON object
     return jsonify(response)
