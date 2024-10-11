@@ -83,6 +83,7 @@ def chat():
         "start_time": start_time,
         "results": results  # Full results object from LLaMA 3 model
     }
+    print(json.dumps(response))
 
     # # Store the response in the log file
     # with open(log_file, 'a') as f:
