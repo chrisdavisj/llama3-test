@@ -30,6 +30,11 @@ generator = Llama.build(
     max_batch_size=max_batch_size,
 )
 
+# Health check route
+@app.route('/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "API is running"}), 200
+
 @app.route('/chat', methods=['POST'])
 def chat():
     # Get the input data from the request
